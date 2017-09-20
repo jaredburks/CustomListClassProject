@@ -61,5 +61,16 @@ namespace CustomListClass
             //Assert
             Assert.AreEqual(expected, list[0]);
         }
+        [TestMethod]
+        public void Amount()//Counts number of items in list
+        {
+            //Arrange
+            int expected = 3;
+            CustomList<int> list = new CustomList() { 1, 2};
+            //Act
+            list.AddInt(3);
+            //Assert
+            Assert.AreEqual(expected, list.Amount);
+        }
     }
 }
