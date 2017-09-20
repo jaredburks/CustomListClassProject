@@ -55,11 +55,11 @@ namespace CustomListClass
         {
             //Arrange
             CustomList<int> list = new CustomList() { 3, 6, 1, 2 };
-            int expected = 1;
+            CustomList<int> expected = new CustomList() { 1, 2, 3, 6 };
             //Act
             list.SortList();
             //Assert
-            Assert.AreEqual(expected, list[0]);
+            Assert.AreEqual(expected, list);
         }
         [TestMethod]
         public void Amount()//Counts number of items in list
