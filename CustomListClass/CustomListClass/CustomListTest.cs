@@ -84,5 +84,38 @@ namespace CustomListClass
             //Assert
             Assert.AreEqual(expected, list[2]);
         }
+        [TestMethod]
+        public void Stringify()//converts contents of list into a string
+        {
+            //Arrange
+            string expected = "1";
+            CustomList<int> list = new CustomList() { 1 };
+            //Act
+            list.Stringify();
+            //Assert
+            Assert.AreEqual(expected, list[0]);
+        }
+        [TestMethod]
+        public void Holds()//Comparable to Contains method
+        {
+            //Arrange
+            int expected = 2;
+            CustomList<int> list = new CustomList() {2};
+            //Act
+            list.Holds(2);
+            //Assert
+            Assert.AreEqual(expected, list[0]);
+        }
+        [TestMethod]
+        public void FlipFlop()//Comparable to Reverse method
+        {
+            //Arrange
+            int expected = 3;
+            CustomList<int> list = new CustomList() { 1, 2, 3 };
+            //Act
+            list.FlipFlop();
+            //Assert
+            Assert.AreEqual(expected, list[0]);
+        }
     }
 }
