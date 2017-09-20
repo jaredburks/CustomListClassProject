@@ -7,7 +7,7 @@ namespace CustomListClass
     public class CustomListTest
     {
         [TestMethod]
-        public void AddInt()
+        public void AddInt()//Should add a number to list
         {
             //Arrange
             int expected = 2;
@@ -18,7 +18,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list[0]);
         }
         [TestMethod]
-        public void RemoveInt()
+        public void RemoveInt()//Should remove content (int) from specific index
         {
             //Arrange
             int expected = 0;
@@ -29,7 +29,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
-        public void ClearList()
+        public void ClearList()//List can be cleared completely (no content)
         {
             //Arrange
             int expected = 0;
@@ -38,6 +38,28 @@ namespace CustomListClass
             list.ClearList();
             //Assert
             Assert.AreEqual(expected, list.Count);
+        }
+        [TestMethod]
+        public void IterateList()//List can be looped through
+        {
+            //Arrange
+            int expected = 3;
+            CustomList<int> list = new CustomList();
+            //Act
+            list.IterateList();
+            //Assert
+            Assert.AreEqual(expected, list.Count);
+        }
+        [TestMethod]
+        public void SortList()//Sorts list numerically or alphabetically
+        {
+            //Arrange
+            CustomList<int> list = new CustomList() { 3, 6, 1, 2 };
+            int expected = 1;
+            //Act
+            list.SortList();
+            //Assert
+            Assert.AreEqual(expected, list[0]);
         }
     }
 }
