@@ -26,7 +26,7 @@ namespace CustomListClass
             //Act
             list.RemoveInt(list[0]);
             //Assert
-            Assert.AreEqual(expected, list.Count);
+            Assert.AreEqual(expected, list.Amount);
         }
         [TestMethod]
         public void ClearList()//List can be cleared completely (no content)
@@ -37,7 +37,7 @@ namespace CustomListClass
             //Act
             list.ClearList();
             //Assert
-            Assert.AreEqual(expected, list.Count);
+            Assert.AreEqual(expected, list.Amount);
         }
         [TestMethod]
         public void IterateList()//List can be looped through
@@ -48,7 +48,7 @@ namespace CustomListClass
             //Act
             list.IterateList();
             //Assert
-            Assert.AreEqual(expected, list.Count);
+            Assert.AreEqual(expected, list.Amount);
         }
         [TestMethod]
         public void SortList()//Sorts list numerically or alphabetically
