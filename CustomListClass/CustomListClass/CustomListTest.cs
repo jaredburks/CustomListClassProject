@@ -72,5 +72,17 @@ namespace CustomListClass
             //Assert
             Assert.AreEqual(expected, list.Amount);
         }
+        [TestMethod]
+        public void Zip()//list will have new entries from list 2 in order of list[0], list2[0], list[1], list2[1]..ect
+        {
+            //Arrange
+            int expected = 3;
+            CustomList<int> list = new CustomList() { 1, 3, 5 };
+            CustomList<int> list2 = new CustomList() { 2, 4, 6 };
+            //Act
+            list.Zip(list2);
+            //Assert
+            Assert.AreEqual(expected, list[2]);
+        }
     }
 }
