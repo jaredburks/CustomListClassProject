@@ -189,7 +189,7 @@ namespace CustomListClass
             //Act
             list.ToString();
             //Assert
-            Assert.AreEqual(expected, list);
+            Assert.AreEqual(expected, list.ToString());
             return list;
         }
         [TestMethod]
@@ -202,7 +202,21 @@ namespace CustomListClass
             //Act
             list.ToString();
             //Assert
-            Assert.AreEqual(expected, list);
+            Assert.AreEqual(expected, list.ToString());
+            return list;
+        }
+        [TestMethod]
+        public override string ToString_TwoLists()//converts contents of list into a string
+        {
+            //Arrange
+            string expected = "Hello World!";
+            CustomList<string> list = new CustomList() { "H", "e", "l", "l", "o", " " };
+            CustomList<string> list2 = new CustomList() { "W", "o", "r", "l", "d", "!" };
+            //Act
+            list += list2;
+            list.ToString();
+            //Assert
+            Assert.AreEqual(expected, list.ToString());
             return list;
         }
         [TestMethod]
