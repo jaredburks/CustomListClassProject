@@ -44,6 +44,17 @@ namespace CustomListClass
             Assert.AreEqual(expected, list);
         }
         [TestMethod]
+        public void Add_Char()//Should add a character (or any type) to list
+        {
+            //Arrange
+            string expected = "!";
+            CustomList<string> list = new CustomList();
+            //Act
+            list.Add("!");
+            //Assert
+            Assert.AreEqual(expected, list[0]);
+        }
+        [TestMethod]
         public void Remove_Number()//Should remove content (int) from specific index
         {
             //Arrange
