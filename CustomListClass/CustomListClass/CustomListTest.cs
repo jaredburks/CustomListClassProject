@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CustomListProject;
-using System.Collections.Generic.IEnumerable<T>;
 
 namespace CustomListClass
 {
@@ -175,7 +174,7 @@ namespace CustomListClass
         {
             //Arrange
             string expected = "1";
-            CustomList<string> list = new CustomList<string>() { 1 };
+            CustomList<int> list = new CustomList<int>() { 1 };
             //Act
             list.ToString();
             //Assert

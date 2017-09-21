@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 namespace CustomListProject
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable<T>
     {
         private T[] array;
         private int count;
@@ -64,6 +65,17 @@ namespace CustomListProject
         {
             return base.ToString();
         }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
         public static CustomList<T> operator+(CustomList<T> a , CustomList<T> b)
         {
             return a;
