@@ -44,7 +44,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list);
         }
         [TestMethod]
-        public void Add_Character_!()//Should add a character (or any type) to list
+        public void Add_Character()//Should add a character (or any type) to list
         {
             //Arrange
             char expected = '!';
@@ -228,7 +228,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list);
         }
         [TestMethod]
-        public void PulsOperator_Letters(CustomList<T> list, CustomList<T> list2)//Adds the contents of both lists into 1
+        public void PlusOperator_Letters(CustomList<T> list, CustomList<T> list2)//Adds the contents of both lists into 1
         {
             //Arrange
             CustomList<string> expected = new CustomList<string>() { "h", "e", "l", "l", "o" };
