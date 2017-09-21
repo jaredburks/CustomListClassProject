@@ -7,7 +7,7 @@ namespace CustomListClass
     public class CustomListTest
     {
         [TestMethod]
-        public void Add()//Should add a number (or any type) to list
+        public void Add_Number()//Should add a number (or any type) to list
         {
             //Arrange
             int expected = 2;
@@ -18,7 +18,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list[0]);
         }
         [TestMethod]
-        public void Add()//Should add a String (or any type) to list
+        public void Add_Letter()//Should add a String (or any type) to list
         {
             //Arrange
             string expected = "a";
@@ -29,7 +29,22 @@ namespace CustomListClass
             Assert.AreEqual(expected, list[0]);
         }
         [TestMethod]
-        public void Remove()//Should remove content (int) from specific index
+        public void Add_MultipleNumbers()//Should add many ints (or any type) to list
+        {
+            //Arrange
+            CustomList<int> expected = new CustomList() { 1, 2, 3, 4, 5 };
+            CustomList<int> list = new CustomList();
+            //Act
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
+            //Assert
+            Assert.AreEqual(expected, list);
+        }
+        [TestMethod]
+        public void Remove_Number()//Should remove content (int) from specific index
         {
             //Arrange
             int expected = 0;
@@ -40,7 +55,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
-        public void Remove()//Should remove content (string) from specific index
+        public void Remove_String()//Should remove content (string) from specific index
         {
             //Arrange
             CustomList<string> list = new CustomList() { "h", "e", "l", "l" };
@@ -49,6 +64,20 @@ namespace CustomListClass
             list.Remove(list[4]);
             //Assert
             Assert.AreEqual(expected, list.Count);
+        }
+        [TestMethod]
+        public void Remove_MultipleNumbers()//Should remove many ints (or any type) from list
+        {
+            //Arrange
+            CustomList<int> expected = new CustomList() { 1 };
+            CustomList<int> list = new CustomList() { 1, 2, 3, 4, 5 };
+            //Act
+            list.Remove(2);
+            list.Remove(3);
+            list.Remove(4);
+            list.Remove(5);
+            //Assert
+            Assert.AreEqual(expected, list);
         }
         [TestMethod]
         public void Iterate()//List can be looped through
@@ -62,7 +91,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
-        public void Sort()//Sorts list numerically or alphabetically
+        public void Sort_Numbers()//Sorts list numerically or alphabetically
         {
             //Arrange
             CustomList<int> list = new CustomList() { 3, 6, 1, 2 };
@@ -73,7 +102,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list);
         }
         [TestMethod]
-        public void Sort()//Sorts list numerically or alphabetically
+        public void Sort_Strings()//Sorts list numerically or alphabetically
         {
             //Arrange
             CustomList<string> list = new CustomList() { "c", "d", "a", "b"};
@@ -84,7 +113,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list);
         }
         [TestMethod]
-        public void Count()//Counts number of items in list
+        public void Count_Number()//Counts number of items in list
         {
             //Arrange
             int expected = 3;
@@ -95,7 +124,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
-        public void Count()//Counts number of items in list
+        public void Count_String()//Counts number of items in list
         {
             //Arrange
             int expected = 5;
@@ -105,7 +134,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
-        public void Zip()//list will have new entries from list 2 in order of list[0], list2[0], list[1], list2[1]..ect
+        public void Zip_Numbers()//list will have new entries from list 2 in order of list[0], list2[0], list[1], list2[1]..ect
         {
             //Arrange
             int expected = 3;
@@ -117,7 +146,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list[2]);
         }
         [TestMethod]
-        public void Zip()//list will have new entries from list 2 in order of list[0], list2[0], list[1], list2[1]..ect
+        public void Zip_Strings()//list will have new entries from list 2 in order of list[0], list2[0], list[1], list2[1]..ect
         {
             //Arrange
             string expected = "o";
@@ -129,7 +158,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list[4]);
         }
         [TestMethod]
-        public override string ToString()//converts contents of list into a string
+        public override string ToString_Number()//converts contents of list into a string
         {
             //Arrange
             string expected = "1";
@@ -141,11 +170,24 @@ namespace CustomListClass
             return list;
         }
         [TestMethod]
-        public override string ToString()//converts contents of list into a string
+        public override string ToString_MultipleNumbers()//converts contents of list into a string
         {
             //Arrange
             string expected = "123";
-            CustomList<string> list = new CustomList() { 1, 2, 3 };
+            CustomList<int> list = new CustomList() { 1, 2, 3 };
+            //Act
+            list.ToString();
+            //Assert
+            Assert.AreEqual(expected, list);
+            return list;
+        }
+        [TestMethod]
+        public override string ToString_Object()//converts contents of list into a string
+        {
+            //Arrange
+            object obj1 = new object();
+            string expected = "Object1 : yee";
+            CustomList<object> list = new CustomList() {obj1};
             //Act
             list.ToString();
             //Assert
