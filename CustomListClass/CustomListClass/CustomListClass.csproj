@@ -53,6 +53,12 @@
     <Compile Include="CustomListTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CustomList\CustomListProject.csproj">
+      <Project>{D00716BD-30F7-47A9-92BB-73074D7C0BB2}</Project>
+      <Name>CustomListProject</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

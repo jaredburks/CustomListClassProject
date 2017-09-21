@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CustomListProject;
+using System.Collections.Generic.IEnumerable<T>;
 
 namespace CustomListClass
 {
@@ -50,7 +52,7 @@ namespace CustomListClass
             char expected = '!';
             CustomList<char> list = new CustomList<char>();
             //Act
-            list.Add("!");
+            list.Add('!');
             //Assert
             Assert.AreEqual(expected, list[0]);
         }

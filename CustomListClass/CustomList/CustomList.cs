@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace CustomList
+namespace CustomListProject
 {
     public class CustomList<T>
     {
         private T[] array;
         private int count;
         private int capacity;
-        public int Count { get; set; }
+        public int Count { get; }
         public int Capacity { get; set; }
         public T this[int i]
         {
@@ -31,6 +30,19 @@ namespace CustomList
             {
                 capacity *= 2;
             }
+            for (int i = 0; i <= count; i++)
+            {
+                int j = 0;
+                if(array[j] == null)
+                {
+                    array[j] = value;
+                }
+                else
+                {
+                    j++;
+                }
+            }
+            count++;
         }
         public void Remove()
         {
