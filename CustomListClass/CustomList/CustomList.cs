@@ -8,14 +8,29 @@ namespace CustomList
 {
     public class CustomList<T>
     {
+        private T[] array;
+        private int count;
+        private int capacity;
+        public int Count { get; set; }
+        public int Capacity { get; set; }
+        public T this[int i]
+        {
+            get { return array[i]; }
+            set { array[i] = value; }
+        }
         public CustomList()
         {
-
+            array = new T[capacity];
+            count = 0;
+            capacity = 4;
         }
 
-        public void Add()
+        public void Add(T value)
         {
-
+            if (count == capacity)
+            {
+                capacity *= 2;
+            }
         }
         public void Remove()
         {
@@ -37,13 +52,13 @@ namespace CustomList
         {
             return base.ToString();
         }
-        public static PlusOperator operator+(CustomList<T> a , CustomList<T> b)
+        public static CustomList<T> operator+(CustomList<T> a , CustomList<T> b)
         {
-
+            return a;
         }
-        public static MinusOperator operator -(CustomList<T> a, CustomList<T> b)
+        public static CustomList<T> operator-(CustomList<T> a, CustomList<T> b)
         {
-
+            return a;
         }
     }
 }
