@@ -27,14 +27,15 @@ namespace CustomListProject
 
         public void Add(T value)
         {
+            array[0] = value;
             if (count == capacity)
             {
                 capacity *= 2;
             }
-            for (int i = 0; i <= count; i++)
+            /*for (int i = 0; i <= count; i++)
             {
                 int j = 0;
-                if(array[j] == null)
+                if(count == 0)
                 {
                     array[j] = value;
                 }
@@ -42,7 +43,7 @@ namespace CustomListProject
                 {
                     j++;
                 }
-            }
+            }*/
             count++;
         }
         public void Remove(T value)
