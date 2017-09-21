@@ -7,70 +7,59 @@ namespace CustomListClass
     public class CustomListTest
     {
         [TestMethod]
-        public void AddInt()//Should add a number to list
+        public void Add()//Should add a number (or any type) to list
         {
             //Arrange
             int expected = 2;
             CustomList<int> list = new CustomList();
             //Act
-            list.AddInt(2);
+            list.Add(2);
             //Assert
             Assert.AreEqual(expected, list[0]);
         }
         [TestMethod]
-        public void RemoveInt()//Should remove content (int) from specific index
+        public void Remove()//Should remove content (int) from specific index
         {
             //Arrange
             int expected = 0;
             CustomList<int> list = new CustomList() {2};
             //Act
-            list.RemoveInt(list[0]);
+            list.Remove(list[0]);
             //Assert
-            Assert.AreEqual(expected, list.Amount);
+            Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
-        public void ClearList()//List can be cleared completely (no content)
-        {
-            //Arrange
-            int expected = 0;
-            CustomList<int> list = new CustomList() { 1, 2, 3 };
-            //Act
-            list.ClearList();
-            //Assert
-            Assert.AreEqual(expected, list.Amount);
-        }
-        [TestMethod]
-        public void IterateList()//List can be looped through
+        public void Iterate()//List can be looped through
         {
             //Arrange
             int expected = 3;
             CustomList<int> list = new CustomList();
             //Act
-            list.IterateList();
+            list.Iterate();
             //Assert
-            Assert.AreEqual(expected, list.Amount);
+            Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
-        public void SortList()//Sorts list numerically or alphabetically
+        public void Sort()//Sorts list numerically or alphabetically
         {
             //Arrange
             CustomList<int> list = new CustomList() { 3, 6, 1, 2 };
             CustomList<int> expected = new CustomList() { 1, 2, 3, 6 };
             //Act
-            list.SortList();
+            list.Sort();
             //Assert
             Assert.AreEqual(expected, list);
         }
         [TestMethod]
-        public void Amount()//Counts number of items in list
+        public void Count()//Counts number of items in list
         {
             //Arrange
             int expected = 3;
             CustomList<int> list = new CustomList() { 1, 2};
             //Act
-            list.AddInt(3);
+            list.Add(3);
             //Assert
-            Assert.AreEqual(expected, list.Amount);
+            Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
         public void Zip()//list will have new entries from list 2 in order of list[0], list2[0], list[1], list2[1]..ect
@@ -85,37 +74,16 @@ namespace CustomListClass
             Assert.AreEqual(expected, list[2]);
         }
         [TestMethod]
-        public void Stringify()//converts contents of list into a string
+        public override string ToString()//converts contents of list into a string
         {
             //Arrange
             string expected = "1";
             CustomList<int> list = new CustomList() { 1 };
             //Act
-            list.Stringify();
+            list.ToString();
             //Assert
             Assert.AreEqual(expected, list[0]);
-        }
-        [TestMethod]
-        public void Holds()//Comparable to Contains method
-        {
-            //Arrange
-            int expected = 2;
-            CustomList<int> list = new CustomList() {2};
-            //Act
-            list.Holds(2);
-            //Assert
-            Assert.AreEqual(expected, list[0]);
-        }
-        [TestMethod]
-        public void FlipFlop()//Comparable to Reverse method
-        {
-            //Arrange
-            int expected = 3;
-            CustomList<int> list = new CustomList() { 1, 2, 3 };
-            //Act
-            list.FlipFlop();
-            //Assert
-            Assert.AreEqual(expected, list[0]);
+            return list;
         }
     }
 }
