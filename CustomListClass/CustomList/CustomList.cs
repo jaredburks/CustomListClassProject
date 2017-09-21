@@ -53,10 +53,10 @@ namespace CustomListProject
         {
 
         }
-        public void Count()
-        {
+        //public void Count()
+        //{
 
-        }
+        //}
         public void Zip()
         {
 

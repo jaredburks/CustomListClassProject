@@ -217,7 +217,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list.ToString());
         }
         [TestMethod]
-        public void PlusOperator_Numbers(CustomList<T> a, CustomList<T> b)//Adds the contents of both lists into 1
+        public void PlusOperator_Numbers()//Adds the contents of both lists into 1
         {
             //Arrange
             CustomList<int> expected = new CustomList<int>() { 1, 2, 3, 4, 5, 6 };
@@ -229,7 +229,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list);
         }
         [TestMethod]
-        public void PlusOperator_Letters(CustomList<T> a, CustomList<T> b)//Adds the contents of both lists into 1
+        public void PlusOperator_Letters()//Adds the contents of both lists into 1
         {
             //Arrange
             CustomList<string> expected = new CustomList<string>() { "h", "e", "l", "l", "o" };
@@ -241,7 +241,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list);
         }
         [TestMethod]
-        public void MinusOperator_Numbers(CustomList<T> a, CustomList<T> b)//subtracts the contents of both lists
+        public void MinusOperator_Numbers()//subtracts the contents of both lists
         {
             //Arrange
             CustomList<int> expected = new CustomList<int>() { 2, 3 };
@@ -253,7 +253,7 @@ namespace CustomListClass
             Assert.AreEqual(expected, list);
         }
         [TestMethod]
-        public void MinusOperator_Letters(CustomList<T> a, CustomList<T> b)//subtracts the contents of both lists
+        public void MinusOperator_Letters()//subtracts the contents of both lists
         {
             //Arrange
             CustomList<string> expected = new CustomList<string>() { "h", "e", "o"};
