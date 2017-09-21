@@ -45,7 +45,7 @@ namespace CustomListProject
             }
             count++;
         }
-        public void Remove()
+        public void Remove(T value)
         {
 
         }
@@ -57,7 +57,11 @@ namespace CustomListProject
         //{
 
         //}
-        public void Zip()
+        public void Iterate()
+        {
+
+        }
+        public void Zip(CustomList<T> value)
         {
 
         }
