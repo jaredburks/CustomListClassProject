@@ -85,5 +85,29 @@ namespace CustomListClass
             Assert.AreEqual(expected, list[0]);
             return list;
         }
+        [TestMethod]
+        public static CustomListClass operator+(CustomList<T> list, CustomList<T> list2)//Adds the contents of both lists into 1
+        {
+            //Arrange
+            CustomList<int> expected = new CustomList() { 1, 2, 3, 4, 5, 6 };
+            CustomList<int> list = new CustomList() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList() { 4, 5, 6 };
+            //Act
+            list += list2;
+            //Assert
+            Assert.AreEqual(expected, list);
+        }
+        [TestMethod]
+        public static CustomListClass operator-(CustomList<T> list, CustomList<T> list2)//subtracts the contents of both lists
+        {
+            //Arrange
+            CustomList<int> expected = new CustomList() { 2, 3 };
+            CustomList<int> list = new CustomList() { 1, 2, 3 };
+            CustomList<int> list2 = new CustomList() { 4, 1, 6 };
+            //Act
+            list -= list2;
+            //Assert
+            Assert.AreEqual(expected, list);
+        }
     }
 }
