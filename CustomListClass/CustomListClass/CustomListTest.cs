@@ -33,7 +33,7 @@ namespace CustomListClass
         public void Add_MultipleNumbers_12345()//Should add many ints (or any type) to list
         {
             //Arrange
-            int expected = 5;
+            int expected = 9;
             CustomList<int> list = new CustomList<int>();
             //Act
             list.Add(1);
@@ -41,8 +41,12 @@ namespace CustomListClass
             list.Add(3);
             list.Add(4);
             list.Add(5);
+            list.Add(6);
+            list.Add(7);
+            list.Add(8);
+            list.Add(9);
             //Assert
-            Assert.AreEqual(expected, list[4]);
+            Assert.AreEqual(expected, list[8]);
         }
         [TestMethod]
         public void Add_Character()//Should add a character (or any type) to list
@@ -67,15 +71,15 @@ namespace CustomListClass
             Assert.AreEqual(expected, list.Count);
         }
         [TestMethod]
-        public void Remove_String_o()//Should remove content (string) from specific index
+        public void Remove_String_l()//Should remove content (string) from specific index
         {
             //Arrange
-            CustomList<string> expected = new CustomList<string>() { "h", "e", "l", "l" };
+            CustomList<string> expected = new CustomList<string>() { "h", "l", "l", "o"};
             CustomList<string> list = new CustomList<string>() { "h", "e", "l", "l", "o"};
             //Act
-            list.Remove(list[4]);
+            list.Remove("e");
             //Assert
-            Assert.AreEqual(expected, list.Count);
+            Assert.AreEqual(expected[1], list[1]);
         }
         [TestMethod]
         public void Remove_MultipleNumbers_2345()//Should remove many ints (or any type) from list

@@ -33,14 +33,15 @@ namespace CustomListProject
             //array[0] = value;
             if (count == capacity)
             {
-                holderArray = array;
-                array = new T[capacity*2];
-                int spot = 0;
-                foreach (T element in holderArray)
-                {
-                    array[spot] = holderArray[spot];
-                    spot++;
-                }
+                capacity = capacity * 2;
+            }
+            holderArray = array;
+            array = new T[capacity];
+            int spot = 0;
+            foreach (T element in holderArray)
+            {
+                array[spot] = holderArray[spot];
+                spot++;
             }
             count++;
             Count = count;
@@ -48,12 +49,14 @@ namespace CustomListProject
         }
         public void Remove(T value)
         {
-            foreach(T element in array)
+            holderArray = new T[] { value };
+            IEnumerable<T> result = array.Except(holderArray);
+            int spot = 0;
+            foreach (T element in result)
             {
-                if(element.Equals(value))
-                {
-                    array = array.Except(new T[] { value }).ToArray();
-                }
+                if(element != null)
+                array[spot] = element;
+                spot++;
             }
             count--;
             Count = count;
