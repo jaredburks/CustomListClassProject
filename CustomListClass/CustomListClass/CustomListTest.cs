@@ -33,7 +33,7 @@ namespace CustomListClass
         public void Add_MultipleNumbers_12345()//Should add many ints (or any type) to list
         {
             //Arrange
-            CustomList<int> expected = new CustomList<int>() { 1, 2, 3, 4, 5 };
+            int expected = 5;
             CustomList<int> list = new CustomList<int>();
             //Act
             list.Add(1);
@@ -42,7 +42,7 @@ namespace CustomListClass
             list.Add(4);
             list.Add(5);
             //Assert
-            Assert.AreEqual(expected, list);
+            Assert.AreEqual(expected, list[4]);
         }
         [TestMethod]
         public void Add_Character()//Should add a character (or any type) to list
