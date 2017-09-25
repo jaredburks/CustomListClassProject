@@ -12,7 +12,7 @@ namespace CustomListProject
         private T[] holderArray;
         private int count;
         private int capacity;
-        public int Count { get; set; }
+        public int Count { get { return count; } }
         public int Capacity { get; set; }
         public T this[int i]
         {
@@ -24,7 +24,6 @@ namespace CustomListProject
             count = 0;
             capacity = 4;
             array = new T[capacity];
-            Count = count;
             Capacity = capacity;
         }
 
@@ -44,22 +43,15 @@ namespace CustomListProject
                 spot++;
             }
             count++;
-            Count = count;
             array[count-1] = value;
         }
         public void Remove(T value)
         {
-            holderArray = new T[] { value };
-            IEnumerable<T> result = array.Except(holderArray);
-            int spot = 0;
-            foreach (T element in result)
+            for(int i = 0; i < count; i++)
             {
-                if(element != null)
-                array[spot] = element;
-                spot++;
+
             }
             count--;
-            Count = count;
         }
         public void Sort()
         {
