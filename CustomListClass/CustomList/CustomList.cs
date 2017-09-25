@@ -20,9 +20,9 @@ namespace CustomListProject
         }
         public CustomList()
         {
-            array = new T[capacity];
             count = 0;
             capacity = 4;
+            array = new T[capacity];
         }
 
         public void Add(T value)
