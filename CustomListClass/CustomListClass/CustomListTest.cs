@@ -81,7 +81,7 @@ namespace CustomListClass
         public void Remove_MultipleNumbers_2345()//Should remove many ints (or any type) from list
         {
             //Arrange
-            CustomList<int> expected = new CustomList<int>() { 1 };
+            int expected = 1;
             CustomList<int> list = new CustomList<int>() { 1, 2, 3, 4, 5 };
             //Act
             list.Remove(2);
@@ -89,7 +89,7 @@ namespace CustomListClass
             list.Remove(4);
             list.Remove(5);
             //Assert
-            Assert.AreEqual(expected, list);
+            Assert.AreEqual(expected, list[0]);
         }
         [TestMethod]
         public void Iterate()//List can be looped through

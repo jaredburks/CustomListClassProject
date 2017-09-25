@@ -51,7 +51,15 @@ namespace CustomListProject
         }
         public void Remove(T value)
         {
-
+            foreach(T element in array)
+            {
+                if(element.Equals(value))
+                {
+                    array = array.Except(new T[] { value }).ToArray();
+                }
+            }
+            count--;
+            Count = count;
         }
         public void Sort()
         {
