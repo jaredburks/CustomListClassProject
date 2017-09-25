@@ -11,7 +11,7 @@ namespace CustomListProject
         private T[] array;
         private int count;
         private int capacity;
-        public int listCount { get; }
+        public int Count { get; }
         public int Capacity { get; set; }
         public T this[int i]
         {
@@ -51,10 +51,6 @@ namespace CustomListProject
 
         }
         public void Sort()
-        {
-
-        }
-        public void Count()
         {
 
         }
