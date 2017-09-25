@@ -11,7 +11,7 @@ namespace CustomListProject
         private T[] array;
         private int count;
         private int capacity;
-        public int Count { get; }
+        public int listCount { get; }
         public int Capacity { get; set; }
         public T this[int i]
         {
@@ -54,10 +54,10 @@ namespace CustomListProject
         {
 
         }
-        //public void Count()
-        //{
+        public void Count()
+        {
 
-        //}
+        }
         public void Iterate()
         {
 
