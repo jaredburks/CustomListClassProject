@@ -60,12 +60,16 @@ namespace CustomListProject
             }
             if (isValue)
             {
+                isValue = false;
                 for (int j = 0; j < count; j++)
                 {
-                    array[j] = holderArray[j];
                     if (value.Equals(holderArray[j]))
                     {
                         isValue = true;
+                    }
+                    else if(!isValue)
+                    {
+                        array[j] = holderArray[j];
                     }
                     if (isValue)
                     {
