@@ -96,17 +96,6 @@ namespace CustomListClass
             Assert.AreEqual(expected, list[0]);
         }
         [TestMethod]
-        public void Iterate()//List can be looped through
-        {
-            //Arrange
-            int expected = 3;
-            CustomList<int> list = new CustomList<int>();
-            //Act
-            list.Iterate();
-            //Assert
-            Assert.AreEqual(expected, list.Count);
-        }
-        [TestMethod]
         public void Sort_Numbers_1236()//Sorts list numerically or alphabetically
         {
             //Arrange

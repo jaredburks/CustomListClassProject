@@ -9,7 +9,6 @@ namespace CustomListProject
     public class CustomList<T> : IEnumerable<T>
     {
         private T[] array;
-        private T[] holderArray;
         private int count;
         private int capacity;
         public int Count { get { return count; } }
@@ -29,7 +28,8 @@ namespace CustomListProject
 
         public void Add(T value)
         {
-            //array[0] = value;
+            T[] holderArray;
+
             if (count == capacity)
             {
                 capacity = capacity * 2;
@@ -45,22 +45,42 @@ namespace CustomListProject
             count++;
             array[count-1] = value;
         }
-        public void Remove(T value)
+        public bool Remove(T value)
         {
+            T[] holderArray;
+            bool isValue = false;
+            holderArray = array;
+
             for(int i = 0; i < count; i++)
             {
-
+                if (holderArray[i].Equals(value))
+                {
+                    isValue = true;
+                }
+            }
+            if (isValue)
+            {
+                for (int j = 0; j < count; j++)
+                {
+                    array[j] = holderArray[j];
+                    if (value.Equals(holderArray[j]))
+                    {
+                        isValue = true;
+                    }
+                    if (isValue)
+                    {
+                        array[j] = holderArray[j + 1];
+                    }
+                }
             }
             count--;
+            return isValue;
         }
         public void Sort()
         {
 
         }
-        public void Iterate()
-        {
 
-        }
         public void Zip(CustomList<T> value)
         {
 
