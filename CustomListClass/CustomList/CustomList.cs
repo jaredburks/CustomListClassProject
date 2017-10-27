@@ -85,9 +85,23 @@ namespace CustomListProject
 
         }
 
-        public void Zip(CustomList<T> value)
+        public void Zip(CustomList<T> list)
         {
+            T[] holderArray;
+            holderArray = array;
+            array = new T[0];
+            count = 0;
+            int spot = 0;
+            int spot2 = 0;
 
+            foreach (T element in holderArray)
+            {
+                Add(holderArray[spot2]);
+                spot++;
+                Add(list[spot2]);
+                spot++;
+                spot2++;
+            }
         }
         public override string ToString()
         {
