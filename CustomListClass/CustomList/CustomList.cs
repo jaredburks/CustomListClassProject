@@ -43,7 +43,7 @@ namespace CustomListProject
                 spot++;
             }
             count++;
-            array[count-1] = value;
+            array[count - 1] = value;
         }
         public bool Remove(T value)
         {
@@ -51,7 +51,7 @@ namespace CustomListProject
             bool isValue = false;
             holderArray = array;
 
-            for(int i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 if (holderArray[i].Equals(value))
                 {
@@ -67,7 +67,7 @@ namespace CustomListProject
                     {
                         isValue = true;
                     }
-                    else if(!isValue)
+                    else if (!isValue)
                     {
                         array[j] = holderArray[j];
                     }
@@ -79,10 +79,6 @@ namespace CustomListProject
             }
             count--;
             return isValue;
-        }
-        public void Sort()
-        {
-
         }
 
         public void Zip(CustomList<T> list)
@@ -105,26 +101,64 @@ namespace CustomListProject
         }
         public override string ToString()
         {
-            return base.ToString();
+            string c = null;
+            for (int i = 0; i < count; i++)
+            {
+                Convert.ToString(array[i]);
+                c += array[i];
+            }
+            return c;
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            T[] values = new T[100];
+            int top = 0;
+            for (int i = top - 1; i >= 0; i--)
+            {
+                yield return values[i];
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
 
-        public static CustomList<T> operator+(CustomList<T> a , CustomList<T> b)
+        public static CustomList<T> operator +(CustomList<T> a, CustomList<T> b)
         {
-            return a;
+            CustomList<T> holderArray = new CustomList<T>();
+
+            for (int i = 0; i < a.count; i++)
+            {
+                holderArray.Add(a[i]);
+            }
+            for (int i = 0; i < a.count; i++)
+            {
+                holderArray.Add(b[i]);
+            }
+            return holderArray;
         }
-        public static CustomList<T> operator-(CustomList<T> a, CustomList<T> b)
+        public static CustomList<T> operator -(CustomList<T> list1, CustomList<T> list2)
         {
-            return a;
+            CustomList<T> holderArray = new CustomList<T>();
+            bool duplicate = false;
+
+            for (int i = 0; i < list2.count; i++)
+            {
+                for (int j = 0; j < list1.count; j++)
+                {
+                    if(list2[i].Equals(list1[j]) && !duplicate)
+                    {
+                        duplicate = true;
+                    }
+                    else
+                    {
+                        holderArray.Add(list1[j]);
+                    }
+                }
+            }
+            return holderArray;
         }
     }
 }

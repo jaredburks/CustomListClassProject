@@ -96,28 +96,6 @@ namespace CustomListClass
             Assert.AreEqual(expected, list[0]);
         }
         [TestMethod]
-        public void Sort_Numbers_1236()//Sorts list numerically or alphabetically
-        {
-            //Arrange
-            CustomList<int> list = new CustomList<int>() { 3, 6, 1, 2 };
-            CustomList<int> expected = new CustomList<int>() { 1, 2, 3, 6 };
-            //Act
-            list.Sort();
-            //Assert
-            Assert.AreEqual(expected, list);
-        }
-        [TestMethod]
-        public void Sort_Strings_abcd()//Sorts list numerically or alphabetically
-        {
-            //Arrange
-            CustomList<string> list = new CustomList<string>() { "c", "d", "a", "b"};
-            CustomList<string> expected = new CustomList<string>() { "a", "b", "c", "d"};
-            //Act
-            list.Sort();
-            //Assert
-            Assert.AreEqual(expected, list);
-        }
-        [TestMethod]
         public void Count_Number_3()//Counts number of items in list
         {
             //Arrange
@@ -169,9 +147,9 @@ namespace CustomListClass
             string expected = "1";
             CustomList<int> list = new CustomList<int>() { 1 };
             //Act
-            list.ToString();
+            string result = list.ToString();
             //Assert
-            Assert.AreEqual(expected, list[0]);
+            Assert.AreEqual(expected[0], result[0]);
         }
         [TestMethod]
         public void ToString_MultipleNumbers_123()//converts contents of list into a string
@@ -180,35 +158,11 @@ namespace CustomListClass
             string expected = "123";
             CustomList<int> list = new CustomList<int>() { 1, 2, 3 };
             //Act
-            list.ToString();
+            string result = list.ToString();
             //Assert
-            Assert.AreEqual(expected, list.ToString());
+            Assert.AreEqual(expected[2], result[2]);
         }
-        [TestMethod]
-        public void ToString_Object()//converts contents of list into a string
-        {
-            //Arrange
-            object obj1 = new object();
-            string expected = "Object1 : yee";
-            CustomList<object> list = new CustomList<object>() {obj1};
-            //Act
-            list.ToString();
-            //Assert
-            Assert.AreEqual(expected, list.ToString());
-        }
-        [TestMethod]
-        public void ToString_TwoLists()//converts contents of list into a string
-        {
-            //Arrange
-            string expected = "Hello World!";
-            CustomList<string> list = new CustomList<string>() { "H", "e", "l", "l", "o", " " };
-            CustomList<string> list2 = new CustomList<string>() { "W", "o", "r", "l", "d", "!" };
-            //Act
-            list += list2;
-            list.ToString();
-            //Assert
-            Assert.AreEqual(expected, list.ToString());
-        }
+
         [TestMethod]
         public void PlusOperator_Numbers()//Adds the contents of both lists into 1
         {
@@ -216,10 +170,11 @@ namespace CustomListClass
             CustomList<int> expected = new CustomList<int>() { 1, 2, 3, 4, 5, 6 };
             CustomList<int> list = new CustomList<int>() { 1, 2, 3 };
             CustomList<int> list2 = new CustomList<int>() { 4, 5, 6 };
+            CustomList<int> result = new CustomList<int>();
             //Act
-            list += list2;
+            result = list + list2;
             //Assert
-            Assert.AreEqual(expected, list);
+            Assert.AreEqual(expected[3], result[3]);
         }
         [TestMethod]
         public void PlusOperator_Letters()//Adds the contents of both lists into 1
@@ -228,10 +183,11 @@ namespace CustomListClass
             CustomList<string> expected = new CustomList<string>() { "h", "e", "l", "l", "o" };
             CustomList<string> list = new CustomList<string>() { "h", "e", "l" };
             CustomList<string> list2 = new CustomList<string>() { "l", "o"};
+            CustomList<string> result = new CustomList<string>();
             //Act
-            list += list2;
+            result = list + list2;
             //Assert
-            Assert.AreEqual(expected, list);
+            Assert.AreEqual(expected[4], result[4]);
         }
         [TestMethod]
         public void MinusOperator_Numbers()//subtracts the contents of both lists
@@ -239,23 +195,25 @@ namespace CustomListClass
             //Arrange
             CustomList<int> expected = new CustomList<int>() { 2, 3 };
             CustomList<int> list = new CustomList<int>() { 1, 2, 3 };
-            CustomList<int> list2 = new CustomList<int>() { 4, 1, 6 };
+            CustomList<int> list2 = new CustomList<int>() { 1 };
+            CustomList<int> result = new CustomList<int>();
             //Act
-            list -= list2;
+            result = list - list2;
             //Assert
-            Assert.AreEqual(expected, list);
+            Assert.AreEqual(expected[0], result[0]);
         }
         [TestMethod]
         public void MinusOperator_Letters()//subtracts the contents of both lists
         {
             //Arrange
-            CustomList<string> expected = new CustomList<string>() { "h", "e", "o"};
+            CustomList<string> expected = new CustomList<string>() { "h", "e", "l", "o" };
             CustomList<string> list = new CustomList<string>() { "h", "e", "l", "l", "o" };
-            CustomList<string> list2 = new CustomList<string>() { "l"}; //Does this subtract 1 "l" or all "l's"?
+            CustomList<string> list2 = new CustomList<string>() { "l"}; //This subtract 1st "l".
+            CustomList<string> result = new CustomList<string>();
             //Act
-            list -= list2;
+            result = list - list2;
             //Assert
-            Assert.AreEqual(expected, list);
+            Assert.AreEqual(expected[3], result[3]);
         }
     }
 }
